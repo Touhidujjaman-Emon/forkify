@@ -24,7 +24,7 @@ const renderSpinner = function (parentEl) {
           </svg>
         </div> 
   `;
-
+  recipeContainer.innerHTML = '';
   parentEl.insertAdjacentHTML('afterbegin', markup);
 };
 
