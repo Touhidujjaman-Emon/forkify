@@ -1,3 +1,6 @@
+import * as model from './model.js'
+
+
 //import icons from '../img/icons.svg' // for parcel v1
 import icons from 'url:../img/icons.svg'; // for parcel v2
 import 'core-js/stable';
@@ -37,26 +40,11 @@ const showRecipe = async function () {
     console.log(id);
 
     if (!id) return;
-
     renderSpinner(recipeContainer);
+
     // 1) Loading recipe
-    const res = await fetch(
-     ` https://forkify-api.herokuapp.com/api/v2/recipes/${id}`
-    );
-    const data = await res.json();
-    if (!res.ok) throw new Error(`${data.message}(${res.status})`);
-    let { recipe } = data.data;
-    recipe = {
-      id: recipe.id,
-      title: recipe.title,
-      publisher: recipe.publisher,
-      cookingTime: recipe.cooking_time,
-      servings: recipe.servings,
-      ingredients: recipe.ingredients,
-      image: recipe.image_url,
-      sourceUrl: recipe.source_url,
-    };
-    console.log(recipe);
+    await model.loadRecipe(id)
+    const { recipe } = model.state
     // 2) Rendering recipe
     const markup = `
     <figure class="recipe__fig">
