@@ -1,3 +1,4 @@
+import 'regenerator-runtime/runtime';
 
 export const state = {
   recipe: {},
