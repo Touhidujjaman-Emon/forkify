@@ -6,6 +6,7 @@ import recipeView from './views/recipeView.js';
 
 import searchView from './views/searchView.js';
 import resultsView from './views/resultsView.js';
+import paginationView from './views/paginationView.js';
 
 ///////////////////////////////////////
 
@@ -46,7 +47,10 @@ const controlSearchResult = async function () {
     await model.loadSearchResults(query);
 
     // Render results
-    resultsView.render(model.getSearchResultsPage());
+    resultsView.render(model.getSearchResultsPage(1));
+
+    // Render initial  pagination button 
+    paginationView.render(model.state.search)
 
   } catch (err) {
     console.log(err);
