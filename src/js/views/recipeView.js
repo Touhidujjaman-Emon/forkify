@@ -18,7 +18,6 @@ class RecipeView extends View {
       const btn = e.target.closest('.btn--update-servings');
 
       if (!btn) return;
-      console.log(btn);
 
       const { updateTo }  = btn.dataset
       
@@ -77,7 +76,7 @@ class RecipeView extends View {
          
          <button class="btn--round">
            <svg class="">
-             <use href="${icons}#icon-bookmark-fill"></use>
+             <use href="${icons}#icon-bookmark"></use>
            </svg>
          </button>
        </div>

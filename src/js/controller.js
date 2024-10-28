@@ -23,11 +23,13 @@ const controlRecipe = async function () {
     recipeView.renderSpinner();
 
     // 0) Update results view to mark selected search result
-    resultsView.update(model.getSearchResultsPage())
+    if (model.getSearchResultsPage())
+    resultsView.update(model.getSearchResultsPage());
+    
 
     // 1) Loading recipe
     await model.loadRecipe(id);
-    const { recipe } = model.state;
+    
 
     // 2) Rendering recipe
     recipeView.render(model.state.recipe);
@@ -46,7 +48,7 @@ const controlSearchResult = async function () {
     // Get search query
     const query = searchView.getQuery();
     if (!query) return;
-
+    
     // Load search results
     await model.loadSearchResults(query);
 
@@ -76,6 +78,11 @@ const controlServings = function (newServings){
   // Update the recipe view
   // recipeView.render(model.state.recipe);
    recipeView.update(model.state.recipe);
+}
+
+const controlAddBookmark = function () {
+  model.addBookmark(model.state.recipe)
+  console.log(model.state.recipe);
 }
 
 
