@@ -13,7 +13,6 @@ export default class View {
   }
 
   update(data) {
-
     if (!data || (Array.isArray(data) && data.length === 0))
       return this.renderError();
 
@@ -40,7 +39,6 @@ export default class View {
           curEl.setAttribute(attr.name, attr.value)
         );
       }
-      
     });
   }
 
