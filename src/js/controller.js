@@ -10,6 +10,8 @@ import resultsView from './views/resultsView.js';
 import paginationView from './views/paginationView.js';
 import bookmarkView from './views/bookmarkView.js';
 
+import addRecipeView from './views/addRecipeView.js';
+
 ///////////////////////////////////////
 
 // Hot reload using parcel
