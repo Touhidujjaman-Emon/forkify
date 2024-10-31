@@ -1,6 +1,7 @@
 import 'regenerator-runtime/runtime';
 import { API_URL, RES_PER_PAGE } from './config.js';
 import { getJSON } from './helper.js';
+import { async } from 'regenerator-runtime';
 
 export const state = {
   recipe: {},
@@ -109,8 +110,27 @@ const init = function () {
   if (storage) state.bookmarks = JSON.parse(storage);
 };
 init();
+
 const clearBookmarks = function () {
-  localStorage.clear('bookmarks')
-}
+  localStorage.clear('bookmarks');
+};
 // clearBookmarks()
 
+export const uploadRecipe = async function (newRecipe) {
+  try{const ingredients = Object.entries(newRecipe)
+    .filter(entry => entry[0].startsWith('ingredient') && entry[1] !== '')
+    .map(ing => {
+      const ingArr = ing[1].replaceAll(' ', '').split(',');
+      const [quantity, unit, description] = ingArr;
+
+      if (ingArr.length !== 3)
+        throw Error('Wrong ingredients format , Please try again');
+
+      return { quantity: quantity ? +quantity : null, unit, description };
+    });
+  } catch (err) {
+    throw err
+    }
+  
+  console.log(ingredients);
+};
