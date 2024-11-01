@@ -12,6 +12,7 @@ class AddRecipeView extends View {
 
   _btnOpen = document.querySelector('.nav__btn--add-recipe');
   _btnClose = document.querySelector('.btn--close-modal');
+  _msg = document.querySelector('.message');
 
   constructor() {
     super();
@@ -26,6 +27,7 @@ class AddRecipeView extends View {
 
   _addHandlerShowWindow() {
     this._btnOpen.addEventListener('click', this.toggleWindow.bind(this));
+    this._btnOpen.addEventListener('click', this.renderForm.bind(this));
   }
 
   _addHandlerHideWindow() {
