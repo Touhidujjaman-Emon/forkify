@@ -5,7 +5,7 @@ import View from './view.js';
 
 class AddRecipeView extends View {
   _parentEl = document.querySelector('.upload');
-  _successMessage = 'Recipe was successfully uploaded ;)'
+  _successMessage = 'Recipe was successfully uploaded ;)';
 
   _window = document.querySelector('.add-recipe-window');
   _overlay = document.querySelector('.overlay');
@@ -15,8 +15,8 @@ class AddRecipeView extends View {
 
   constructor() {
     super();
-      this._addHandlerShowWindow();
-      this._addHandlerHideWindow()
+    this._addHandlerShowWindow();
+    this._addHandlerHideWindow();
   }
 
   toggleWindow() {
@@ -31,17 +31,17 @@ class AddRecipeView extends View {
   _addHandlerHideWindow() {
     this._btnClose.addEventListener('click', this.toggleWindow.bind(this));
     this._overlay.addEventListener('click', this.toggleWindow.bind(this));
-    }
-    
+  }
+
   addHandlerUpload(handler) {
-      this._parentEl.addEventListener('submit', function (e) {
-          e.preventDefault()
-        // Trick to get data from form
-          const dataArr = [...new FormData(this)]
-        //   Create a new object from key,value
-          const data = Object.fromEntries(dataArr)
-          handler(data);
-      })
+    this._parentEl.addEventListener('submit', function (e) {
+      e.preventDefault();
+      // Trick to get data from form
+      const dataArr = [...new FormData(this)];
+      //   Create a new object from key,value
+      const data = Object.fromEntries(dataArr);
+      handler(data);
+    });
   }
 
   _generateHtml() {}
