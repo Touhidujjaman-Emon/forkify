@@ -68,6 +68,17 @@
     display: flex;
     align-items: center;
     padding: 7.5rem 8rem 3.5rem 8rem;
+
+    @media only screen and (max-width: $bp-small) {
+      padding: 5rem 3rem 3rem 3rem;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+    }
+
+    @media only screen and (max-width: $bp-smallest) {
+      padding: 5rem 2rem 2rem 2rem;
+      gap: 1rem;
+    }
   }
 
   &__info {
@@ -129,6 +140,10 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+
+    @media only screen and (max-width: $bp-small) {
+      padding: 4rem 2rem;
+    }
   }
 
   &__ingredient-list {
@@ -136,6 +151,11 @@
     grid-template-columns: 1fr 1fr;
     gap: 2.5rem 3rem;
     list-style: none;
+
+    @media only screen and (max-width: $bp-small) {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
   }
 
   &__ingredient {
@@ -164,6 +184,10 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+
+    @media only screen and (max-width: $bp-small) {
+      padding: 4rem 2rem;
+    }
   }
 
   &__directions-text {

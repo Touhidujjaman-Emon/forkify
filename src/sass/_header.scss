@@ -5,10 +5,23 @@
   align-items: center;
   justify-content: space-between;
 
+  @media only screen and (max-width: $bp-small) {
+    flex-direction: column;
+    height: auto;
+    padding: 2.5rem 1.5rem;
+    gap: 1.5rem;
+    align-items: center;
+  }
+
   &__logo {
     margin-left: 4rem;
     height: 4.6rem;
     display: block;
+
+    @media only screen and (max-width: $bp-small) {
+      margin-left: 0;
+      height: 4rem;
+    }
   }
 }
 
@@ -19,6 +32,11 @@
   align-items: center;
   padding-left: 3rem;
   transition: all 0.3s;
+
+  @media only screen and (max-width: $bp-small) {
+    width: 90%;
+    padding-left: 2rem;
+  }
 
   &:focus-within {
     transform: translateY(-2px);
@@ -45,8 +63,13 @@
       width: auto;
 
       &::placeholder {
-        color: white;
+        color: $color-grey-light-3;
       }
+    }
+
+    @media only screen and (max-width: $bp-small) {
+      width: 100%;
+      font-size: 1.5rem;
     }
   }
 
@@ -60,10 +83,19 @@
   align-self: stretch;
   margin-right: 2.5rem;
 
+  @media only screen and (max-width: $bp-small) {
+    margin-right: 0;
+    align-self: center;
+  }
+
   &__list {
     list-style: none;
     display: flex;
     height: 100%;
+
+    @media only screen and (max-width: $bp-small) {
+      gap: 1rem;
+    }
   }
 
   &__item {
@@ -101,6 +133,11 @@
     &:hover {
       background-color: $color-grey-light-2;
     }
+
+    @media only screen and (max-width: $bp-small) {
+      padding: 1rem 1.2rem;
+      font-size: 1.2rem;
+    }
   }
 }
 
@@ -117,6 +154,11 @@
   visibility: hidden;
   opacity: 0;
   transition: all 0.5s 0.2s;
+
+  @media only screen and (max-width: $bp-small) {
+    width: 30rem;
+    right: -4rem;
+  }
 
   &__list {
     list-style: none;
